@@ -19,7 +19,6 @@ public class User {
 	private String passwd;
 	
 	public User(){
-		super();
 	}
 	
 	public User(String username, String passwd) {
