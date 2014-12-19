@@ -12,15 +12,33 @@ import javax.persistence.Table;
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int Id;
+	private int userId;
 	@Column
 	private String username;
 	@Column
 	private String passwd;
-	
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+//	private Set<Book> books = new HashSet<Book>();
+//	
+//	public Set<Book> getBooks() {
+//		return books;
+//	}
+//
+//	public void setBooks(Set<Book> books) {
+//		this.books = books;
+//	}
+
 	public User(){
 	}
 	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 	public User(String username, String passwd) {
 		super();
 		this.username = username;

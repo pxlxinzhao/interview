@@ -2,6 +2,7 @@ package com.patrick.JDBC;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -55,5 +56,50 @@ public class UserDAO {
 	   }
 	  }
  }
+
+	   public void printUser(String username){
+		   
+		   Connection conn = null;
+		   Statement stmt = null;
+		   try{
+
+		      Class.forName("com.mysql.jdbc.Driver");
+		      conn = DriverManager.getConnection(DB_URL,USER,PASS);
+
+		      System.out.println("Creating statement...");
+		      stmt = conn.createStatement();
+		      String sql;
+		      sql = "select username, bookname "
+		      		+ "from users user inner join mybooks book "
+		      		+ "on user.userId = book.userId;";
+		      ResultSet result = stmt.executeQuery(sql);
+		      while(result.next()){
+//		    	  System.out.println(result.getInt("userId"));
+		    	  System.out.println(result.getString("username"));
+//		    	  System.out.println(result.getInt("passwd"));
+		    	  System.out.println(result.getString("bookname"));
+		      }
+		      
+		      stmt.close();
+		      conn.close();
+		   }catch(SQLException se){
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      e.printStackTrace();
+		   }finally{
+		      try{
+		         if(stmt!=null)
+		            stmt.close();
+		      }catch(SQLException se2){
+		      try{
+		         if(conn!=null)
+		            conn.close();
+		      }catch(SQLException se){
+		         se.printStackTrace();
+		      }
+		   }
+		  }
+	   }
+	   
 }
 

@@ -92,6 +92,9 @@
 	        <artifactId>jackson-annotations</artifactId>
 	        <version>2.2.3</version>
 	    </dependency>
+	    
+	    <!-- Logger -->
+
 		
   </dependencies>
   

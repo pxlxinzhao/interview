@@ -40,10 +40,10 @@ public class UserController {
 		model.addAttribute("passwd", passwd);
 		Set<User> userSet = new HashSet<User>();
 		User user1 = new User("xiaobai","123");
-		System.out.println("Start saving");
-//		hibernateHelper.saveUser(user1);
-		System.out.println("Finish saving");
 		User user2 = new User("xiaohei","456");
+		System.out.println("Start saving");
+//		hibernateHelper.saveUser(user2);
+		System.out.println("Finish saving");
 		userSet.add(user1);
 		userSet.add(user2);
 		ModelAndView myModel = new ModelAndView("confirm");

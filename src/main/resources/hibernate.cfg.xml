@@ -16,6 +16,8 @@
         <property name="cache.provider_class">org.hibernate.cache.CacheException</property>
 
         <mapping class="com.patrick.model.User"/>
+        <mapping class="com.patrick.model.Book"/>
+        <mapping class="com.patrick.model.OMGBook"/>
 
     </session-factory>
 </hibernate-configuration>
